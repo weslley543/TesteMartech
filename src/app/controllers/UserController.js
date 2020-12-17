@@ -37,17 +37,18 @@ class UserController{
         return res.status(400).json({msg:"Usuário já registrado"})
       }
       const password = await bcrypt.hash(senha, 8);
-      const { id } = await User.create({
+      const newUser = await User.create({
         name,
         email,
         password_hash:password
       });
-      const token = await jwt.sign({ id }, authConfig.secret, {
+      const token = await jwt.sign({ id:newUser.id }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
       });
 
-      return res.status(200).json({user:{id: dados.id, name:dados.name, email:dados.email}, token});
+      return res.status(200).json({newUser, token});
     }catch(err){
+      console.log(err);
       return res.status(400).json({msg:"Err"});
     }
   }
