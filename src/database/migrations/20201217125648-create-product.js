@@ -10,12 +10,10 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
       },
       preco_unitario: {
         type: Sequelize.FLOAT,
         allowNull: false,
-        unique: true,
       },
       created_at: {
         type: Sequelize.DATE,
