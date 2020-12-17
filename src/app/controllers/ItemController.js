@@ -37,9 +37,20 @@ class ItemController {
       }
       item.quantidade = quantidade;
       await item.save();
-      return res.status(200).json({msg:"Updated"})
+      return res.status(200).json({msg:"Updated"});
+
     }catch(err){
       return res.status(400).json({ msg: "Err" })
+    }
+  }
+
+  async delete (req,res){
+    const { id } = req.params;
+    try{
+      await Item.destroy({where:{id}});
+      return res.status(200).json({msg:"Deleted"});
+    }catch(err){
+      return res.status(400).json({ msg:"Err" })
     }
   }
 }
