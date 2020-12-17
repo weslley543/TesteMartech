@@ -19,6 +19,10 @@ class CartController {
       if(!cart){
         return res.status(400).json({msg:"Carrinho não encontrado"});
       }
+      const user = await User.findByPk(id_usuario);
+      if(!user){
+        return res.status(400).json({ msg:"Usuário não encontrado" })
+      }
       const updatedCart = cart.update({id_usuario});
       return res.status(200).json(updatedCart);
     }catch(err){

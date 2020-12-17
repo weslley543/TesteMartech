@@ -47,7 +47,7 @@ class ItemController {
   async delete (req,res){
     const { id } = req.params;
     try{
-      await Item.destroy({where:{id}});
+      await Item.destroy({where:{ id }});
       return res.status(200).json({msg:"Deleted"});
     }catch(err){
       return res.status(400).json({ msg:"Err" })
