@@ -4,7 +4,7 @@ class Products extends Model {
   static init(sequelize) {
     super.init(
       {
-        quantity:Sequelize.INTEGER
+        quantidade:Sequelize.INTEGER
       },
       {
         sequelize,

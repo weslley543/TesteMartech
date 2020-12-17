@@ -6,7 +6,7 @@ class Products extends Model {
       {
         name: Sequelize.STRING,
         description: Sequelize.STRING,
-        price: Sequelize.FLOAT,
+        preco_unitario: Sequelize.FLOAT,
       },
       {
         sequelize,
