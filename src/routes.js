@@ -14,8 +14,9 @@ routes.post('/user', UserController.create);
 routes.get('/produto', ProductController.index);
 routes.get('/produto/:id', ProductController.show);
 routes.post('/cart', CartController.create);
+routes.get('/cart/:id', CartController.index);
 
-routes.post('/item', ItemController.create);
+routes.post('/item/produto/:id_produto/carrinho/:id_carrinho', ItemController.create);
 routes.put('/item/:id', ItemController.update);
 routes.delete('/item/:id', ItemController.delete);
 
@@ -23,7 +24,6 @@ routes.use(authmiddleware);
 
 routes.get('/user/:id', UserController.show);
 routes.put('/user/:id', UserController.update);
-routes.post('/carrinho/user/:id', CartController.create);
 routes.put('/cart/:id/usuario/:id_usuario', CartController.update);
 
 export default routes;

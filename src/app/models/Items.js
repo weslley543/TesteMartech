@@ -4,7 +4,9 @@ class Items extends Model {
   static init(sequelize) {
     super.init(
       {
-        quantidade:Sequelize.INTEGER
+        quantidade:Sequelize.INTEGER,
+        id_produto:Sequelize.INTEGER,
+        id_carrinho:Sequelize.INTEGER
       },
       {
         sequelize,
@@ -14,6 +16,7 @@ class Items extends Model {
   static associate(models) {
     this.belongsTo(models.Produto, {
       foreignKey: 'id_produto',
+      targetKey: 'id',
       as: 'produto',
     });
   }

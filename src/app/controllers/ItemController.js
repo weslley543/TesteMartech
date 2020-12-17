@@ -11,9 +11,11 @@ class ItemController {
       return res.status(400).json({ msg:"Por favor insira aqui a quantidade de items" });
     }
     try{
+      const { quantidade } = req.body;
       const items = await Items.create({ id_produto, id_carrinho, quantidade });
       return res.status(200).json(items);
     }catch(err){
+      console.log(err);
       return res.status(400).json({ msg:"Erro" });
     }
 
@@ -27,10 +29,11 @@ class ItemController {
     }
     const { id } = req.params;
     try{
-      const item = await Item.findByPk(id);
+      const item = await Items.findByPk(id);
       if(!item){
         return res.status(400).json({ msg: "Item não encontrado" });
       }
+      const { quantidade } = req.body;
       if(quantidade === 0){
         await item.destroy();
         return res.status(200).json( {msg: "Excluido"} );
@@ -40,6 +43,7 @@ class ItemController {
       return res.status(200).json({msg:"Updated"});
 
     }catch(err){
+      console.log(err)
       return res.status(400).json({ msg: "Err" })
     }
   }
