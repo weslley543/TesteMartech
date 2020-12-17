@@ -1,7 +1,7 @@
 module.exports = {
   up: (QueryInterface) => {
     return QueryInterface.bulkInsert(
-      'produto',
+      'produtos',
       [
         {
           description: 'Camiseta',

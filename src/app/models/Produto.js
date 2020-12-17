@@ -1,10 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Products extends Model {
+class Produto extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING,
         description: Sequelize.STRING,
         preco_unitario: Sequelize.FLOAT,
       },
@@ -15,4 +14,4 @@ class Products extends Model {
   }
 }
 
-export default Products;
+export default Produto;

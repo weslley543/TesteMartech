@@ -1,9 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Products extends Model {
+class Carrinho extends Model {
   static init(sequelize) {
     super.init(
-      {},
+      {id_usuario: Sequelize.INTEGER},
       {
         sequelize,
       }
@@ -11,4 +11,4 @@ class Products extends Model {
   }
 }
 
-export default Products;
+export default Carrinho;
