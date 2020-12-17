@@ -11,7 +11,6 @@ module.exports = {
           password_hash: bcrypt.hashSync('123456', 8),
           created_at: new Date(),
           updated_at: new Date(),
-          provider: true,
         },
       ],
       {}
